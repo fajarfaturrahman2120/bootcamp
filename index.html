@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Navbar */
+    * {
+        margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #080808, #b1b1b1);
+    padding: 12px 20px;
+    color: #fff;
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-menu li a:hover {
+    text-decoration: underline;
+}
+
+
+.nav-right {
+    display: flex;
+    gap: 5px;
+}
+
+.nav-right input {
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.nav-right button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #fff;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-right button:hover {
+    background: #e5e7eb;
+}
+/* Navbar */
+/* hero Section */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f8fafc;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    background: linear-gradient(120deg, #b1b1b1, #000000);
+    color: #fff;
+}
+
+/* TEXT */
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* BUTTON */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn.primary {
+    background: #F97316;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: #EA580C;
+}
+
+.btn.secondary {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn.secondary:hover {
+    background: #fff;
+    color: #1E3A8A;
+}
+
+/* IMAGE */
+
+
+/* ANIMATION */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 280px;
+        margin-top: 40px;
+    }
+}
+
+/* hero Section */
+
+</style>
+<body>
+    <!-- navbar -->
+<nav class="navbar">
+    <div class="logo">MyElekronik</div>
+    
+    <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Data</a></li>
+        <li><a href="#">Laporan</a></li>
+        <li><a href="#">Kontak</a></li>
+    </ul>
+    
+    <div class="nav-right">
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+</nav>
+<!-- navbar -->
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Toko Elektronik Terlengkap</h1>
+        <p>
+            Menyediakan HP, Laptop, TV, dan Aksesoris Elektronik
+            dengan harga terbaik dan bergaransi resmi.
+        </p>
+        
+        <div class="hero-buttons">
+            <a href="#" class="btn primary">Belanja Sekarang</a>
+            <a href="#" class="btn secondary">Lihat Produk</a>
+        </div>
+    </div>
+    
+
+        <img src="123.png" alt="Elektronik" width="50%" height="25%">
+    
+</section>
+<!-- Hero Section -->
+
+
+
+
+</body>
+</html>
