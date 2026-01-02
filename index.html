@@ -127,6 +127,13 @@
             box-shadow: var(--shadow-md);
         }
 
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         /* ================= HERO ================= */
         .hero {
             display: flex;
@@ -832,6 +839,283 @@
             color: var(--white);
         }
 
+        /* ================= FOOTER ================= */
+        .footer-wrapper {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+            padding: 70px 30px 20px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--white);
+        }
+
+        .footer-section h3::after, .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--warning-orange);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section:hover h3::after,
+        .footer-section:hover h4::after {
+            width: 80px;
+        }
+
+        .footer-logo p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .social-links a:hover {
+            background: var(--warning-orange);
+            color: var(--text-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            border-color: var(--white);
+        }
+
+        .social-links a i {
+            font-size: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .footer-links li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--warning-orange);
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links li:hover::before {
+            transform: translateX(3px);
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form:hover {
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: var(--warning-orange);
+            color: var(--text-dark);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info p:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .contact-info i {
+            width: 20px;
+            text-align: center;
+            color: var(--warning-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .payment-methods span {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-right: 5px;
+        }
+
+        .payment-methods i {
+            font-size: 28px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .payment-methods i:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            color: var(--warning-orange);
+        }
+
+        .copyright p {
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .copyright:hover p {
+            opacity: 1;
+        }
+
+        /* Notification Toast */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success-green);
+            color: var(--white);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification i {
+            font-size: 20px;
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .hero {
@@ -853,11 +1137,39 @@
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+            
+            .footer-section:first-child {
+                grid-column: span 3;
+                text-align: center;
+            }
+            
+            .footer-section:first-child .social-links {
+                justify-content: center;
+            }
+            
+            .footer-section:last-child {
+                grid-column: span 3;
+            }
+            
+            .footer-section h3::after, 
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
 
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
             }
 
             .nav-right input {
@@ -889,6 +1201,33 @@
 
             .products-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-wrapper {
+                padding: 50px 20px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .footer-section:first-child {
+                grid-column: span 2;
+            }
+            
+            .footer-section:last-child {
+                grid-column: span 2;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .payment-methods {
+                justify-content: center;
             }
         }
 
@@ -931,6 +1270,52 @@
                 align-items: flex-start;
                 gap: 10px;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer-section:first-child,
+            .footer-section:last-child {
+                grid-column: span 1;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .footer-section h3::after, 
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-links li {
+                padding-left: 0;
+                text-align: left;
+            }
+            
+            .footer-links li::before {
+                display: none;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .contact-info {
+                text-align: left;
+                display: inline-block;
+            }
+            
+            .payment-methods {
+                gap: 10px;
+            }
+            
+            .payment-methods i {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -939,6 +1324,9 @@
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="logo">MyElektronik</div>
+    <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
 
     <ul class="nav-menu">
         <li><a href="#home">Home</a></li>
@@ -1150,7 +1538,7 @@
                                 Rp 8.999.000
                                 <span class="old-price">Rp 10.999.000</span>
                             </div>
-                            <button class="product-btn">
+                            <button class="product-btn" data-product="Smartphone Premium 5G">
                                 <i class="fas fa-shopping-cart"></i>
                                 Beli
                             </button>
@@ -1183,7 +1571,7 @@
                                 Rp 15.499.000
                                 <span class="old-price">Rp 17.999.000</span>
                             </div>
-                            <button class="product-btn">
+                            <button class="product-btn" data-product="Laptop Gaming Pro">
                                 <i class="fas fa-shopping-cart"></i>
                                 Beli
                             </button>
@@ -1214,7 +1602,7 @@
                             <div class="product-price">
                                 Rp 7.599.000
                             </div>
-                            <button class="product-btn">
+                            <button class="product-btn" data-product="Smart TV 4K 55&quot;">
                                 <i class="fas fa-shopping-cart"></i>
                                 Beli
                             </button>
@@ -1246,7 +1634,7 @@
                             <div class="product-price">
                                 Rp 2.199.000
                             </div>
-                            <button class="product-btn">
+                            <button class="product-btn" data-product="Wireless Headphones">
                                 <i class="fas fa-shopping-cart"></i>
                                 Beli
                             </button>
@@ -1277,7 +1665,7 @@
                             <div class="product-price">
                                 Rp 3.299.000
                             </div>
-                            <button class="product-btn">
+                            <button class="product-btn" data-product="Smartwatch Pro">
                                 <i class="fas fa-shopping-cart"></i>
                                 Beli
                             </button>
@@ -1309,7 +1697,7 @@
                             <div class="product-price">
                                 Rp 18.999.000
                             </div>
-                            <button class="product-btn">
+                            <button class="product-btn" data-product="Tablet Pro 12.9&quot;">
                                 <i class="fas fa-shopping-cart"></i>
                                 Beli
                             </button>
@@ -1359,11 +1747,11 @@
             <h2>Siap Berbelanja dengan Aman dan Nyaman?</h2>
             <p>Bergabunglah dengan ribuan pelanggan puas yang telah mempercayai kami</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-cta-primary">
+                <a href="#products" class="btn btn-cta-primary">
                     <i class="fas fa-shopping-cart"></i>
                     Mulai Belanja
                 </a>
-                <a href="#" class="btn btn-cta-secondary">
+                <a href="tel:+622112345678" class="btn btn-cta-secondary">
                     <i class="fas fa-phone"></i>
                     Hubungi Kami
                 </a>
@@ -1371,6 +1759,92 @@
         </div>
     </div>
 </section>
+
+<!-- FOOTER -->
+<footer class="footer-wrapper">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <h3>MyElektronik</h3>
+                    <p>Toko elektronik terlengkap dengan harga terbaik dan bergaransi resmi.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/622112345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#problem-solution">Problem & Solution</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#features">Keunggulan</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Kategori Produk</h4>
+                <ul class="footer-links">
+                    <li><a href="#products">Smartphone</a></li>
+                    <li><a href="#products">Laptop</a></li>
+                    <li><a href="#products">Smart TV</a></li>
+                    <li><a href="#products">Audio</a></li>
+                    <li><a href="#products">Wearable</a></li>
+                    <li><a href="#products">Tablet</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Layanan Pelanggan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Cara Pemesanan</a></li>
+                    <li><a href="#">Pengiriman</a></li>
+                    <li><a href="#">Pengembalian Produk</a></li>
+                    <li><a href="#">Garansi</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Dapatkan penawaran terbaik dan informasi produk terbaru</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Email Anda" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +62 21 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@myelektronik.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <span>Metode Pembayaran:</span>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MyElektronik. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
 
 </body>
 </html>
