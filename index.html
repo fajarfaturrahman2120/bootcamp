@@ -1,221 +1,1376 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Navbar</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyElektronik - Toko Elektronik Terlengkap</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* VARIABLES */
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e3a8a;
+            --success-green: #10b981;
+            --danger-red: #ef4444;
+            --warning-orange: #f59e0b;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            padding: 15px 30px;
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-right input {
+            padding: 8px 15px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            width: 200px;
+            font-size: 14px;
+        }
+
+        .nav-right button {
+            padding: 8px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            background: var(--warning-orange);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-right button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 30px;
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary {
+            background: var(--warning-orange);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .hero-image {
+            flex: 0 0 400px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ================= PROBLEM & SOLUTION SECTION ================= */
+        .problem-solution-wrapper {
+            /* Background ungu gradient untuk Problem & Solution */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-solution-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .problem-solution-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--white);
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Grid Layout */
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Problem Column */
+        .problem-column {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-column:hover {
+            transform: translateY(-5px);
+        }
+
+        .column-header {
+            background: var(--danger-red);
+            color: var(--white);
+            padding: 20px 25px;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .column-header i {
+            font-size: 24px;
+        }
+
+        .column-content {
+            padding: 30px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .column-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .column-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .column-content::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        /* Problem Cards */
+        .problem-item {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border-left: 4px solid var(--danger-red);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .problem-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .problem-item:hover {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .problem-item-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .problem-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--danger-red);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .problem-item h3 {
+            color: var(--danger-red);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .problem-item p {
+            color: #991b1b;
+            font-size: 14px;
+            line-height: 1.6;
+            padding-left: 60px;
+        }
+
+        /* Solution Column */
+        .solution-column {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-column:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-column .column-header {
+            background: var(--success-green);
+        }
+
+        /* Solution Cards */
+        .solution-item {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-left: 4px solid var(--success-green);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .solution-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .solution-item:hover {
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            transform: translateX(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .solution-item-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .solution-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--success-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .solution-item h3 {
+            color: #065f46;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .solution-item p {
+            color: #047857;
+            font-size: 14px;
+            line-height: 1.6;
+            padding-left: 60px;
+        }
+
+        /* ================= PRODUCTS SECTION ================= */
+        .products-wrapper {
+            /* Background biru muda gradient untuk Products */
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+            padding: 80px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .products-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 60%),
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .products-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(10px);
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .products-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .products-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--success-green));
+            border-radius: 2px;
+        }
+
+        .products-header p {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--danger-red);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            color: var(--primary-blue);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .product-rating .stars {
+            color: #fbbf24;
+            margin-right: 5px;
+        }
+
+        .product-rating .rating-value {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .product-price .old-price {
+            font-size: 14px;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .product-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .product-btn:hover {
+            background: var(--dark-blue);
+            transform: scale(1.05);
+        }
+
+        /* ================= FEATURES SECTION ================= */
+        .features-wrapper {
+            /* Background abu-abu gelap dengan pattern untuk Features */
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            padding: 80px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.05) 35px, rgba(255,255,255,0.05) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255,255,255,0.03) 35px, rgba(255,255,255,0.03) 70px);
+            pointer-events: none;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(10px);
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .features-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--success-green));
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--light-gray);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, var(--primary-blue), var(--success-green));
+            color: var(--white);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--white);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--success-green));
+           
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            -webkit-text-fill-color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .feature-card h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* ================= CTA SECTION ================= */
+        .cta-wrapper {
+            /* Background hijau teal untuk CTA */
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            padding: 80px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section {
+            background: rgba(255,255,255,0.98);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-primary {
+            background: linear-gradient(135deg, var(--primary-blue), #7c3aed);
+            color: var(--white);
+        }
+
+        .btn-cta-secondary {
+            background: var(--white);
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .btn-cta-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 20px;
+            }
+
+            .hero-image {
+                flex: none;
+                max-width: 400px;
+            }
+
+            .problem-solution-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-right input {
+                width: 150px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .problem-solution-wrapper,
+            .products-wrapper,
+            .features-wrapper,
+            .cta-wrapper {
+                padding: 60px 15px;
+            }
+
+            .column-content {
+                padding: 20px;
+            }
+
+            .problem-item p,
+            .solution-item p {
+                padding-left: 0;
+                margin-top: 10px;
+            }
+
+            .products-section {
+                padding: 30px 20px;
+            }
+
+            .product-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
-<style>
-    /* Navbar */
-    * {
-        margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: #f4f6f8;
-}
-
-
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(90deg, #080808, #b1b1b1);
-    padding: 12px 20px;
-    color: #fff;
-}
-
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-menu li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.nav-menu li a:hover {
-    text-decoration: underline;
-}
-
-
-.nav-right {
-    display: flex;
-    gap: 5px;
-}
-
-.nav-right input {
-    padding: 6px 8px;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-}
-
-.nav-right button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    background: #fff;
-    color: #000000;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.nav-right button:hover {
-    background: #e5e7eb;
-}
-/* Navbar */
-/* hero Section */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-    background: #f8fafc;
-}
-
-/* HERO */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 80px 10%;
-    background: linear-gradient(120deg, #b1b1b1, #fc1b1b);
-    color: #fff;
-}
-
-/* TEXT */
-.hero-content {
-    max-width: 500px;
-}
-
-.hero-content h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
-
-.hero-content p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-/* BUTTON */
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.btn {
-    padding: 12px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.btn.primary {
-    background: #F97316;
-    color: #fff;
-}
-
-.btn.primary:hover {
-    background: #EA580C;
-}
-
-.btn.secondary {
-    border: 2px solid #fff;
-    color: #fff;
-}
-
-.btn.secondary:hover {
-    background: #fff;
-    color: #1E3A8A;
-}
-
-/* IMAGE */
-
-
-/* ANIMATION */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-image img {
-        width: 280px;
-        margin-top: 40px;
-    }
-}
-
-/* hero Section */
-
-</style>
 <body>
-    <!-- navbar -->
+
+<!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">MyElekronik</div>
-    
+    <div class="logo">MyElektronik</div>
+
     <ul class="nav-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Data</a></li>
-        <li><a href="#">Laporan</a></li>
-        <li><a href="#">Kontak</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#problem-solution">Problem & Solution</a></li>
+        <li><a href="#products">Produk</a></li>
+        <li><a href="#features">Keunggulan</a></li>
+        <li><a href="#contact">Kontak</a></li>
     </ul>
-    
+
     <div class="nav-right">
-        <input type="text" placeholder="Search...">
-        <button>Search</button>
+        <input type="text" placeholder="Cari produk...">
+        <button>Cari</button>
     </div>
 </nav>
-<!-- navbar -->
 
-<!-- Hero Section -->
-<section class="hero">
+<!-- HERO -->
+<section class="hero" id="home">
     <div class="hero-content">
         <h1>Toko Elektronik Terlengkap</h1>
         <p>
             Menyediakan HP, Laptop, TV, dan Aksesoris Elektronik
             dengan harga terbaik dan bergaransi resmi.
         </p>
-        
+
         <div class="hero-buttons">
-            <a href="#" class="btn primary">Belanja Sekarang</a>
-            <a href="#" class="btn secondary">Lihat Produk</a>
+            <a href="#products" class="btn btn-primary">
+                <i class="fas fa-shopping-cart"></i>
+                Belanja Sekarang
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+                <i class="fas fa-info-circle"></i>
+                Info Lebih Lanjut
+            </a>
         </div>
     </div>
-    
 
-        <img src="123.png" alt="Elektronik" width="50%" height="25%">
-    
+    <div class="hero-image">
+        <img src="123.png" alt="Elektronik Store">
+    </div>
 </section>
-<!-- Hero Section -->
 
+<!-- PROBLEM & SOLUTION SECTION -->
+<section class="problem-solution-wrapper" id="problem-solution">
+    <div class="problem-solution-container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2>
+                <i class="fas fa-store"></i>
+                Problem & Solution
+            </h2>
+            <p>Mengatasi tantangan berbelanja elektronik dengan solusi terbaik dari toko kami</p>
+        </div>
 
+        <!-- Main Grid -->
+        <div class="problem-solution-grid">
+            <!-- Problems Column -->
+            <div class="problem-column">
+                <div class="column-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Masalah yang Sering Dihadapi
+                </div>
+                <div class="column-content">
+                    <div class="problem-item">
+                        <div class="problem-item-header">
+                            <div class="problem-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h3>Harga Tidak Stabil</h3>
+                        </div>
+                        <p>Harga elektronik sering berubah-ubah dan sulit untuk mendapatkan harga terbaik yang konsisten di berbagai toko.</p>
+                    </div>
 
+                    <div class="problem-item">
+                        <div class="problem-item-header">
+                            <div class="problem-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Garansi Tidak Jelas</h3>
+                        </div>
+                        <p>Banyak produk tanpa garansi resmi atau proses klaim garansi yang rumit dan memakan waktu lama.</p>
+                    </div>
+
+                    <div class="problem-item">
+                        <div class="problem-item-header">
+                            <div class="problem-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3>Pengiriman Berisiko</h3>
+                        </div>
+                        <p>Barang elektronik rentan rusak saat pengiriman dan biaya pengiriman yang mahal untuk barang besar.</p>
+                    </div>
+
+                    <div class="problem-item">
+                        <div class="problem-item-header">
+                            <div class="problem-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3>Informasi Produk Tidak Lengkap</h3>
+                        </div>
+                        <p>Sulit mendapatkan spesifikasi detail dan review yang jujur tentang produk yang akan dibeli.</p>
+                    </div>
+
+                    <div class="problem-item">
+                        <div class="problem-item-header">
+                            <div class="problem-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Layanan Purnajual Buruk</h3>
+                        </div>
+                        <p>Kesulitan mendapatkan bantuan teknis atau service setelah pembelian dilakukan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solutions Column -->
+            <div class="solution-column">
+                <div class="column-header">
+                    <i class="fas fa-lightbulb"></i>
+                    Solusi Kami
+                </div>
+                <div class="column-content">
+                    <div class="solution-item">
+                        <div class="solution-item-header">
+                            <div class="solution-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <h3>Price Match Guarantee</h3>
+                        </div>
+                        <p>Kami menjamin harga terbaik dengan program price match. Jika menemukan harga lebih murah, kami akan berikan harga yang sama atau lebih baik!</p>
+                    </div>
+
+                    <div class="solution-item">
+                        <div class="solution-item-header">
+                            <div class="solution-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3>Garansi Resmi 100%</h3>
+                        </div>
+                        <p>Semua produk dilengkapi garansi resmi dari distributor. Proses klaim mudah melalui aplikasi kami dengan tracking real-time.</p>
+                    </div>
+
+                    <div class="solution-item">
+                        <div class="solution-item-header">
+                            <div class="solution-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <h3>Pengiriman Aman & Asuransi</h3>
+                        </div>
+                        <p>Packing khusus dengan bahan anti-guncang dan asuransi gratis untuk semua produk. Pengiriman same-day untuk area Jabodetabek.</p>
+                    </div>
+
+                    <div class="solution-item">
+                        <div class="solution-item-header">
+                            <div class="solution-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <h3>Informasi Produk Lengkap</h3>
+                        </div>
+                        <p>Setiap produk dilengkapi spesifikasi detail, video review, dan rating dari pembeli nyata. Live chat dengan ahli produk 24/7.</p>
+                    </div>
+
+                    <div class="solution-item">
+                        <div class="solution-item-header">
+                            <div class="solution-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>Support 24/7 & Service Center</h3>
+                        </div>
+                        <p>Tim support siap membantu 24 jam. Service center authorized di 20 kota besar dengan booking online mudah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-wrapper" id="products">
+    <div class="products-container">
+        <div class="products-section">
+            <div class="products-header">
+                <h2>Produk Unggulan Kami</h2>
+                <p>Temukan berbagai pilihan elektronik berkualitas dengan harga terbaik</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hp.png" alt="Smartphone">
+                        <span class="product-badge">Hot</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Smartphone</div>
+                        <h3 class="product-title">Smartphone Premium 5G</h3>
+                        <p class="product-description">Layar AMOLED 6.7", Kamera 108MP, Baterai 5000mAh, RAM 12GB</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-value">4.5 (120 ulasan)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                Rp 8.999.000
+                                <span class="old-price">Rp 10.999.000</span>
+                            </div>
+                            <button class="product-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="leptop.png" alt="Laptop">
+                        <span class="product-badge">Sale</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Laptop</div>
+                        <h3 class="product-title">Laptop Gaming Pro</h3>
+                        <p class="product-description">Intel Core i7, RTX 4060, RAM 16GB, SSD 1TB, 144Hz Display</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-value">5.0 (85 ulasan)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                Rp 15.499.000
+                                <span class="old-price">Rp 17.999.000</span>
+                            </div>
+                            <button class="product-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="tv.png" alt="Smart TV">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Smart TV</div>
+                        <h3 class="product-title">Smart TV 4K 55"</h3>
+                        <p class="product-description">LED 4K UHD, HDR10+, Dolby Vision, Smart OS, 3x HDMI 2.1</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-value">4.0 (62 ulasan)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                Rp 7.599.000
+                            </div>
+                            <button class="product-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="lk.png" alt="Headphones">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Audio</div>
+                        <h3 class="product-title">Wireless Headphones</h3>
+                        <p class="product-description">Active Noise Cancellation, 40mm Drivers, 30hr Battery, Hi-Res Audio</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-value">4.7 (203 ulasan)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                Rp 2.199.000
+                            </div>
+                            <button class="product-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="jam.png" alt="Smartwatch">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Wearable</div>
+                        <h3 class="product-title">Smartwatch Pro</h3>
+                        <p class="product-description">AMOLED Display, GPS, Heart Rate Monitor, 5ATM Water Resistant</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-value">4.2 (156 ulasan)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                Rp 3.299.000
+                            </div>
+                            <button class="product-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="tab.png" alt="Tablet">
+                        <span class="product-badge">Limited</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tablet</div>
+                        <h3 class="product-title">Tablet Pro 12.9"</h3>
+                        <p class="product-description">M2 Chip, 256GB Storage, 12.9" Liquid Retina XDR, 5G Support</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-value">4.9 (78 ulasan)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                Rp 18.999.000
+                            </div>
+                            <button class="product-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features-wrapper" id="features">
+    <div class="features-container">
+        <div class="features-section">
+            <h2 class="features-title">Mengapa Memilih Kami?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-award feature-icon"></i>
+                    <h4>Terpercaya</h4>
+                    <p>10+ tahun pengalaman dan 100.000+ pelanggan puas</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-credit-card feature-icon"></i>
+                    <h4>Payment Flexible</h4>
+                    <p>Berbagai metode pembayaran termasuk cicilan 0%</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-undo feature-icon"></i>
+                    <h4>Easy Return</h4>
+                    <p>Kebijakan pengembalian 30 hari tanpa alasan</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h4>Expert Team</h4>
+                    <p>Tim ahli siap memberikan rekomendasi terbaik</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-wrapper" id="contact">
+    <div class="cta-container">
+        <div class="cta-section">
+            <h2>Siap Berbelanja dengan Aman dan Nyaman?</h2>
+            <p>Bergabunglah dengan ribuan pelanggan puas yang telah mempercayai kami</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-cta-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    Mulai Belanja
+                </a>
+                <a href="#" class="btn btn-cta-secondary">
+                    <i class="fas fa-phone"></i>
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
