@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form FAJAR FATURRAHMAN</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <label for="">Username</label>
+        <input type="text" name="username" required ><br>
+        <label for="">Email</label>
+        <input type="email" name="email" required ><br>
+        <label for="">Password</label>
+        <input type="password" name="password" required ><br>
+        <label for="">Jenis Kelamin</label>
+        <input type="radio" name="jenis_kelamin" value="Laki Laki" required > Laki Laki<br>
+        <input type="radio" name="jenis_kelamin" value="perempuan" required > Perempuan<br>
+        <label for="">Hobi</label>
+        <input type="checkbox" name="hobi[]" value="Sepak Bola" required > Sepak Bola<br>
+        <input type="checkbox" name="hobi[]" value="Basket" required > Basket<br>
+        <input type="checkbox" name="hobi[]" value="Bulu Tangkis" required > Bulu Tangkis<br>
+        <label for="">Alamat</label>
+        <textarea name="alamat" id="alamat"></textarea>
+        <label for="">Jurusan</label>
+        <select name="jurusan" id="jurusan">
+            <option value="">Pilih Jurusan</option>
+            <option value="RPL">RPL</option>
+            <option value="DKV">DKV</option>
+            <option value="TKJ">TKJ</option>
+            <option value="AKT">AKT</option>
+        </select>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html> 

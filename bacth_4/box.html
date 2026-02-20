@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CSS FAJAR FATURRAHMAN</title>
+</head>
+<style>
+  .box {
+      width: 200px;
+      height: 100px;
+      padding: 20px;
+      border: 5px solid #333;
+      margin: 10px;
+      background-color: lightblue;
+  }
+  .btn{
+    padding: 10px 20px;
+    background-color: white;
+    color: #674399;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+   .row {
+        display: flex;
+        /* aktifkan flexbox */
+        gap: 10px;
+        /* jarak antar box */
+        background: lightpink;
+        padding: 5px;
+    }
+
+    .col {
+        flex: 1;            /* bagi rata lebar */
+        background: lightblue;
+        text-align: center;
+        padding: 20px;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 10px auto;
+    }
+</style>
+<body>
+    <div class="box">
+        isi box
+    </div>  
+     <div class="row">
+        <div class="col">A</div>
+        <div class="col">B</div>
+        <div class="col">C</div>
+    </div>
+   <div class="grid">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+  </div>
+</body>
+</html>
